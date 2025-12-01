@@ -1,82 +1,60 @@
-# Lightweight React Template for KAVIA
+# Mood Log Frontend (React + Tailwind)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Playful Neon Fun themed React frontend for logging moods, notes, and viewing analytics.
+
+## Stack
+- React 18 with react-router-dom v6
+- Tailwind CSS 3 (Neon Fun theme)
+- Axios for API calls (JWT via localStorage)
+- Recharts for simple analytics
+
+## Quickstart
+
+1) Install dependencies
+   npm install
+
+2) Configure environment
+   - Copy `.env.example` to `.env`
+   - Set REACT_APP_API_URL to your backend URL (e.g. http://localhost:5000)
+
+3) Run dev server
+   npm start
+   Open http://localhost:3000
+
+4) Production build
+   npm run build
+
+## Environment
+- REACT_APP_API_URL: Base URL for backend API
 
 ## Features
+- Auth pages: Login, Signup
+- Protected routes with AuthGuard
+- Dashboard: quick add, recent entries list
+- MoodForm: add/edit entries
+- Analytics: line chart of mood over time
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Theme
+Application style: Playful — vibrant colors, rounded corners, lively gradients.
+Palette:
+- primary: #10B981
+- secondary: #F59E0B
+- error: #EF4444
+- background: #F0FDF4
+- surface: #FFFFFF
+- text: #374151
 
-## Getting Started
+You can tweak theme in `tailwind.config.js` and utility classes in `src/index.css`.
 
-In the project directory, you can run:
+## Routing
+- /login, /signup (public)
+- / (Dashboard) protected
+- /moods/new (create) protected
+- /moods/:id/edit (edit) protected
+- /analytics protected
 
-### `npm start`
+## API Client
+Located at `src/services/api.js`
+- Automatically attaches Authorization: Bearer <token> from localStorage
+- login(), signup(), listMoods(), createMood(), getMood(), updateMood(), deleteMood(), getProfile(), logout()
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
